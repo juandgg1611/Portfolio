@@ -122,22 +122,21 @@ export default function ProjectDetails({ project }: { project: Project }) {
       {/* Back Button */}
       <div>
         <Link
-          href="/"
-          className="inline-flex items-center gap-3 text-muted hover:text-white transition-all duration-300 group mb-8"
+          href="/#projects"
+          className="inline-flex items-center text-neon hover:text-light transition-colors mb-10 font-mono text-sm uppercase tracking-widest group"
         >
-          <span className="text-base md:text-xl transform group-hover:-translate-x-1 transition-transform duration-300">
-            ←
-          </span>
-          <span className="text-sm md:text-base font-medium">Back</span>
+          <span className="transform group-hover:-translate-x-1 transition-transform duration-300 inline-block mr-2">←</span>
+          Volver al Portafolio
         </Link>
       </div>
 
       {/* Header & External Links */}
-      <div className="mb-6">
+      <div className="mb-8">
+        <span className="text-warm/50 font-mono text-sm uppercase tracking-[0.2em] block mb-4">Proyecto</span>
         <div className="flex items-start justify-between gap-6 mb-6 md:mb-0">
           <AnimatedHeading
             text={project.title}
-            className="text-[clamp(2.5rem,5vw,4.5rem)] font-black tracking-tight leading-none uppercase flex-1 text-white"
+            className="text-[clamp(2.5rem,5vw,4.5rem)] font-black tracking-tight leading-none uppercase flex-1 text-light"
           />
           <div className="hidden md:flex gap-4 pt-2">
             {project.github && (
@@ -193,37 +192,37 @@ export default function ProjectDetails({ project }: { project: Project }) {
       </div>
 
       {/* Tech Stack */}
-      <div className="mb-10 mt-6 animate-section">
+      <div className="mb-12 mt-6 animate-section">
         <div className="mb-3 overflow-hidden">
           <strong className="section-label text-sm md:text-base font-mono uppercase tracking-[0.2em] text-neon block">Stack tecnológico</strong>
         </div>
-        <div className="section-underline w-full h-px bg-border-subtler mb-4" />
-        <p className="animate-child text-base sm:text-lg text-muted font-sans leading-relaxed">
+        <div className="section-underline w-full h-px bg-border-subtler mb-5" />
+        <p className="animate-child text-lg sm:text-xl text-white/70 font-sans leading-relaxed">
           {project.tech?.join(' · ')}
         </p>
       </div>
 
       {/* Description */}
-      <div className="mb-10 animate-section">
+      <div className="mb-12 animate-section">
         <div className="mb-3 overflow-hidden">
           <strong className="section-label text-sm md:text-base font-mono uppercase tracking-[0.2em] text-neon block">Descripción</strong>
         </div>
-        <div className="section-underline w-full h-px bg-border-subtler mb-4" />
-        <p className="animate-child text-base sm:text-lg text-muted font-sans leading-relaxed">
+        <div className="section-underline w-full h-px bg-border-subtler mb-5" />
+        <p className="animate-child text-lg sm:text-xl text-white/70 font-sans leading-relaxed">
           {project.description}
         </p>
       </div>
 
       {/* My Role */}
       {project.myRole?.length > 0 && (
-        <div className="mb-14 animate-section">
+        <div className="mb-16 animate-section">
           <div className="mb-3 overflow-hidden">
             <strong className="section-label text-sm md:text-base font-mono uppercase tracking-[0.2em] text-neon block">Mi rol</strong>
           </div>
-          <div className="section-underline w-full h-px bg-border-subtler mb-4" />
-          <ul className="space-y-3 mt-2">
+          <div className="section-underline w-full h-px bg-border-subtler mb-5" />
+          <ul className="space-y-4 mt-2">
             {project.myRole.map((role, i) => (
-              <li key={i} className="animate-child flex items-start gap-3 text-base sm:text-lg text-muted font-sans">
+              <li key={i} className="animate-child flex items-start gap-3 text-lg sm:text-xl text-white/70 font-sans">
                 <span className="text-neon mt-1 flex-shrink-0">›</span>
                 {role}
               </li>

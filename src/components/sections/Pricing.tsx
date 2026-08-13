@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { gsap, useGSAP } from '@/lib/gsap';
 import AnimatedHeading from '@/components/ui/AnimateHeading';
 import AnimateDescription from '@/components/ui/AnimateDescription';
+import Link from 'next/link';
 
 const plans = [
   {
@@ -197,7 +198,14 @@ const Pricing = () => {
           ))}
         </div>
 
-        <p className="text-center text-warm/30 font-mono text-sm uppercase tracking-widest">
+        <div className="mt-8 flex justify-center">
+          <Link href="/planes" className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent border-2 border-neon text-neon font-sans font-bold uppercase tracking-widest text-sm md:text-base rounded-full overflow-hidden transition-all duration-300 hover:bg-neon hover:text-ink hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]">
+            <span>Ver detalles de los planes</span>
+            <span className="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
+          </Link>
+        </div>
+
+        <p className="text-center text-warm/30 font-mono text-sm uppercase tracking-widest mt-12">
           * Los precios varían según la complejidad. Contáctame para un presupuesto exacto.
         </p>
       </div>

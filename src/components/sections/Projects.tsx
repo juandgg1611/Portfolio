@@ -334,8 +334,7 @@ function MobileSnapProjects({ projects, router }: MobileSnapProjectsProps) {
                     Ver Proyecto
                   </span>
                   <span
-                    className="flex items-center justify-center w-9 h-9 rounded-full text-white text-sm"
-                    style={{ background: '#6C3CE1', boxShadow: '0 0 16px rgba(108, 60, 225, 0.35)' }}
+                    className="flex items-center justify-center w-9 h-9 rounded-full bg-neon text-ink text-sm shadow-[0_0_16px_rgba(200,255,0,0.35)] font-bold"
                   >
                     →
                   </span>

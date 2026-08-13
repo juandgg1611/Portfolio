@@ -150,15 +150,15 @@ const TechStack = () => {
                 {stack.title}
               </h3>
 
-              <div className="lg:w-2/3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
+              <div className="lg:w-2/3 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:-mt-2 xl:-mt-3">
                 {stack.technologies.map((tech, i) => (
                   <div
                     key={i}
-                    className="tech-item flex items-center gap-4 p-4 md:p-5 rounded-xl cursor-pointer transition-all duration-300 hover:bg-elevated-dark/60"
+                    className="tech-item flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 md:p-4 rounded-xl cursor-pointer transition-all duration-300 hover:bg-elevated-dark/60 overflow-hidden"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center relative flex-shrink-0">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center relative flex-shrink-0">
                       <img
                         src={tech.icon}
                         alt={tech.name}
@@ -170,7 +170,7 @@ const TechStack = () => {
                         loading="lazy"
                       />
                     </div>
-                    <p className="text-lg md:text-xl font-mono font-bold text-cream">
+                    <p className="text-xs sm:text-sm md:text-base font-mono font-bold text-cream min-w-0 flex-1 tracking-tight">
                       {tech.name}
                     </p>
                   </div>

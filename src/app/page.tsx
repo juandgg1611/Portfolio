@@ -72,7 +72,7 @@ export default function Home() {
           <HomeBanner />
         </section>
         <div id="about-section-wrapper" className="relative bg-black">
-          <div ref={reuniteRef} className="relative z-10 bg-ink min-h-screen overflow-hidden">
+          <div ref={reuniteRef} className="relative z-10 bg-ink min-h-screen">
             <About techStackRef={techStackRef} />
           </div>
         </div>

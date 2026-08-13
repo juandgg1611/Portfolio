@@ -10,22 +10,26 @@ const Services = () => {
   const servicesRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    if (window.innerWidth < 768) return;
-    const ctx = gsap.context(() => {
-      const allSections = servicesRef.current.filter(Boolean);
-      const pinOffset = 50;
-      allSections.forEach((section, index) => {
-        ScrollTrigger.create({
-          trigger: section,
-          start: `top ${pinOffset + index * 100}px`,
-          endTrigger: allSections[allSections.length - 1],
-          end: 'bottom bottom',
-          pin: true,
-          pinSpacing: false,
+    // Desktop only: GSAP ScrollTrigger pin
+    const mm = gsap.matchMedia();
+    mm.add('(min-width: 768px)', () => {
+      const ctx = gsap.context(() => {
+        const allSections = servicesRef.current.filter(Boolean);
+        const pinOffset = 50;
+        allSections.forEach((section, index) => {
+          ScrollTrigger.create({
+            trigger: section,
+            start: `top ${pinOffset + index * 100}px`,
+            endTrigger: allSections[allSections.length - 1],
+            end: 'bottom bottom',
+            pin: true,
+            pinSpacing: false,
+          });
         });
-      });
-    }, sectionRef);
-    return () => ctx.revert();
+      }, sectionRef);
+      return () => ctx.revert();
+    });
+    return () => mm.revert();
   }, []);
 
   const headingText = 'Lo que hago';
@@ -72,7 +76,7 @@ const Services = () => {
     <section
       id="services"
       ref={sectionRef}
-      className="min-h-screen bg-ink text-light py-24 md:py-32 overflow-hidden"
+      className="min-h-screen bg-ink text-light py-24 md:py-32"
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
         <div className="mb-10 md:mb-20">
@@ -102,8 +106,11 @@ const Services = () => {
               ref={(el) => {
                 servicesRef.current[index] = el;
               }}
-              className="bg-ink pb-16 md:pb-32 [will-change:transform]"
-              style={{ zIndex: index + 1 }}
+              className="bg-ink pb-16 md:pb-32 sticky md:static"
+              style={{
+                zIndex: index + 1,
+                top: `${80 + index * 48}px`, // mobile: sticky top below navbar + stacking offset
+              }}
             >
               <div className="grid md:grid-cols-12 gap-4 items-center py-4 md:py-8 border-t border-border-subtle">
                 <h3

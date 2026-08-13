@@ -48,10 +48,13 @@ const Footer = () => {
 
   const handleLinkClick = useHandleLinkClick();
   const links = [
-    { name: 'About', href: '/#about' },
-    { name: 'Services', href: '/#services' },
-    { name: 'Work', href: '/#projects' },
-    { name: 'Contact', href: '/#contact' },
+    { name: 'Sobre mí', href: '/#about' },
+    { name: 'Servicios', href: '/#services' },
+    { name: 'Proyectos', href: '/#projects' },
+    { name: 'Contacto', href: '/#contact' },
+    { name: 'FAQ', href: '/faq', external: true },
+    { name: 'Términos', href: '/terminos', external: true },
+    { name: 'Privacidad', href: '/privacidad', external: true },
   ];
 
   const scrollToTop = () => {
@@ -63,75 +66,109 @@ const Footer = () => {
   };
 
   return (
-    <footer ref={footerRef} className="relative z-30 bg-cream px-6 sm:px-8 md:px-12 py-12 md:py-16">
+    <footer ref={footerRef} className="relative z-30 bg-cream px-6 sm:px-8 md:px-12 pt-20 pb-8 md:pt-32 md:pb-12 border-t border-warm/10">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 mb-10 md:mb-12">
-          <div>
-            <h3 className="text-warm text-base sm:text-lg font-sans tracking-wide font-semibold mb-4 md:mb-6">
-              Menu
-            </h3>
-            <ul className="flex flex-col gap-3 sm:gap-4 text-warm text-xs sm:text-sm font-sans font-medium uppercase tracking-wide">
-              {links.map((link) => (
-                <AnimatedLink key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleLinkClick(link.href);
-                    }}
-                  >
-                    {link.name}
+        
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-24 mb-20 md:mb-32">
+          
+          {/* Brand & Intro */}
+          <div className="flex-1 max-w-sm">
+            <h2 className="text-warm font-display text-4xl md:text-5xl font-black uppercase leading-none tracking-tight mb-6">
+              Juan Oberto
+            </h2>
+            <p className="text-warm/70 font-sans text-sm md:text-base leading-relaxed mb-8">
+              Diseño y desarrollo web de alto rendimiento. Construyendo experiencias digitales memorables con un enfoque minimalista y premium.
+            </p>
+            <div className="inline-flex flex-col">
+              <span className="text-warm/50 font-mono text-xs uppercase tracking-widest font-bold mb-3">
+                Hora Local
+              </span>
+              <p className="text-warm text-sm font-sans font-medium bg-warm/5 inline-flex items-center px-4 py-2.5 rounded-xl border border-warm/10">
+                <span className="w-2 h-2 rounded-full bg-forest mr-3 animate-pulse"></span>
+                {isMounted && currentTime ? `${currentTime} VE` : 'Cargando...'}
+              </p>
+            </div>
+          </div>
+
+          {/* Links Grid */}
+          <div className="flex-1 w-full grid grid-cols-2 gap-8 md:gap-16">
+            <div>
+              <h3 className="text-warm/40 font-mono text-xs uppercase tracking-[0.2em] font-bold mb-6">
+                Explorar
+              </h3>
+              <ul className="flex flex-col gap-4 text-warm text-sm sm:text-base font-sans font-semibold tracking-wide">
+                {links.map((link) => (
+                  <AnimatedLink key={link.href}>
+                    {link.external ? (
+                      <a href={link.href} className="hover:text-forest transition-colors flex items-center gap-2 group">
+                        {link.name}
+                        <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-forest">→</span>
+                      </a>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="hover:text-forest transition-colors flex items-center gap-2 group"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleLinkClick(link.href);
+                        }}
+                      >
+                        {link.name}
+                        <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-forest">→</span>
+                      </a>
+                    )}
+                  </AnimatedLink>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-warm/40 font-mono text-xs uppercase tracking-[0.2em] font-bold mb-6">
+                Conectar
+              </h3>
+              <ul className="flex flex-col gap-4 text-warm text-sm sm:text-base font-sans font-semibold tracking-wide">
+                <AnimatedLink>
+                  <a href="https://linkedin.com/in/aitezaz-sikandar" target="_blank" rel="noopener noreferrer" className="hover:text-forest transition-colors flex items-center gap-2 group">
+                    LinkedIn
+                    <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-forest">↗</span>
                   </a>
                 </AnimatedLink>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-warm text-base sm:text-lg font-sans tracking-wide font-semibold mb-4 md:mb-6">
-              Socials
-            </h3>
-            <ul className="flex flex-col gap-3 sm:gap-4 text-warm text-xs sm:text-sm font-sans font-medium uppercase tracking-wide">
-              <AnimatedLink>
-                <a href="https://linkedin.com/in/aitezaz-sikandar" target="_blank" rel="noopener noreferrer">
-                  Linkedin
-                </a>
-              </AnimatedLink>
-              <AnimatedLink>
-                <a href="https://instagram.com/ur_zaz" target="_blank" rel="noopener noreferrer">
-                  Instagram
-                </a>
-              </AnimatedLink>
-              <AnimatedLink>
-                <a href="https://github.com/aitezazdev" target="_blank" rel="noopener noreferrer">
-                  Github
-                </a>
-              </AnimatedLink>
-              <AnimatedLink>
-                <a href="https://github.com/aitezazdev/Portfolio" target="_blank" rel="noopener noreferrer">
-                  Source Code
-                </a>
-              </AnimatedLink>
-            </ul>
-          </div>
-
-          <div className="col-span-2 md:col-span-1 mt-6 md:mt-0">
-            <h3 className="text-warm text-base sm:text-lg font-sans tracking-wide font-semibold mb-2 md:mb-6">
-              Local Time
-            </h3>
-            <p className="text-warm text-sm sm:text-base font-sans font-medium tracking-wide">
-              {isMounted && currentTime ? `${currentTime} VE` : 'Cargando hora...'}
-            </p>
+                <AnimatedLink>
+                  <a href="https://instagram.com/ur_zaz" target="_blank" rel="noopener noreferrer" className="hover:text-forest transition-colors flex items-center gap-2 group">
+                    Instagram
+                    <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-forest">↗</span>
+                  </a>
+                </AnimatedLink>
+                <AnimatedLink>
+                  <a href="https://github.com/aitezazdev" target="_blank" rel="noopener noreferrer" className="hover:text-forest transition-colors flex items-center gap-2 group">
+                    GitHub
+                    <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-forest">↗</span>
+                  </a>
+                </AnimatedLink>
+                <AnimatedLink>
+                  <a href="https://github.com/aitezazdev/Portfolio" target="_blank" rel="noopener noreferrer" className="hover:text-forest transition-colors flex items-center gap-2 group">
+                    Código Fuente
+                    <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-forest">↗</span>
+                  </a>
+                </AnimatedLink>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="flex justify-end">
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-warm/10 flex flex-col-reverse md:flex-row justify-between items-center gap-6">
+          <p className="text-warm/50 font-sans text-xs sm:text-sm uppercase tracking-widest font-medium text-center md:text-left">
+            © {new Date().getFullYear()} Juan Oberto. Todos los derechos reservados.
+          </p>
+          
           <button
             onClick={scrollToTop}
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-footer-bg border border-footer-border flex items-center justify-center text-warm hover:text-forest hover:border-forest hover:bg-forest/10 transition-all duration-300 group focus:outline-none"
-            aria-label="Scroll to top"
+            className="group flex items-center gap-3 px-6 py-3 rounded-full bg-warm/5 border border-warm/10 text-warm hover:text-forest hover:border-forest/30 hover:bg-forest/5 transition-all duration-300 focus:outline-none"
+            aria-label="Volver arriba"
           >
-            <FaArrowUp className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:-translate-y-1 transition-transform duration-300" />
+            <span className="font-mono text-xs uppercase tracking-widest font-bold">Volver arriba</span>
+            <FaArrowUp className="w-3 h-3 transform group-hover:-translate-y-1 transition-transform duration-300" />
           </button>
         </div>
       </div>

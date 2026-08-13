@@ -1,12 +1,14 @@
 import { Metadata } from 'next';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://juanoberto.dev';
+
 export const siteMetadata: Metadata = {
   title: {
-    default: 'Juan Oberto - Desarrollador Web Full Stack',
+    default: 'Juan Oberto — Desarrollador Web Full Stack | Maracaibo',
     template: '%s | Juan Oberto',
   },
   description:
-    'Desarrollador Web Full Stack especializado en React, Next.js y soluciones digitales. Construyo aplicaciones web rápidas, escalables y orientadas a resultados.',
+    'Desarrollador Web Full Stack especializado en React, Next.js y soluciones digitales premium. Construyo aplicaciones web ultrarrápidas, escalables y orientadas a resultados desde Maracaibo, Venezuela.',
   keywords: [
     'Juan Oberto',
     'Desarrollador Web',
@@ -18,46 +20,57 @@ export const siteMetadata: Metadata = {
     'Portafolio',
     'Venezuela',
     'Maracaibo',
+    'Diseño Web',
+    'Sitios Web',
+    'Desarrollo Web Maracaibo',
   ],
-  authors: [
-    {
-      name: 'Juan Oberto',
-    },
-  ],
+  authors: [{ name: 'Juan Oberto', url: SITE_URL }],
   creator: 'Juan Oberto',
-  metadataBase: new URL('https://aitezaz.xyz'),
+  metadataBase: new URL(SITE_URL),
   alternates: {
-    canonical: './',
+    canonical: SITE_URL,
   },
   icons: {
-    icon: '/logo.webp',
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
-    title: 'Juan Oberto - Desarrollador Web Full Stack',
+    title: 'Juan Oberto — Desarrollador Web Full Stack | Maracaibo',
     description:
-      'Portafolio de Juan Oberto, Desarrollador Web Full Stack especializado en React, Next.js y experiencias web premium.',
-    url: 'https://aitezaz.xyz',
-    siteName: 'Juan Oberto Portfolio',
+      'Portafolio de Juan Oberto, Desarrollador Web Full Stack especializado en React, Next.js y experiencias web premium desde Maracaibo, Venezuela.',
+    url: SITE_URL,
+    siteName: 'Juan Oberto — Portfolio',
+    locale: 'es_VE',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Juan Oberto - Desarrollador Web Full Stack',
+        alt: 'Juan Oberto — Desarrollador Web Full Stack',
       },
     ],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Juan Oberto - Desarrollador Web Full Stack',
+    title: 'Juan Oberto — Desarrollador Web Full Stack',
     description:
       'Portafolio de Juan Oberto, Desarrollador Web Full Stack especializado en React, Next.js y experiencias web premium.',
     images: ['/og-image.png'],
+    creator: '@juanoberto',
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
-

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import AnimatedHeading from '@/components/ui/AnimateHeading';
 import AnimateDescription from '@/components/ui/AnimateDescription';
 import AnimatedButton from '@/components/ui/AnimatedButton';
@@ -11,6 +12,7 @@ const Contact = () => {
   const descriptionText =
     '¿Tienes un proyecto en mente o simplemente quieres saludar? Escríbeme, estaré encantado de hablar contigo.';
 
+  const router = useRouter();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -94,9 +96,8 @@ const Contact = () => {
       clearTimeout(timeoutId);
       const data = await response.json();
       if (response.ok && data.success) {
-        setSubmitStatus('success');
-        setSuccessMessage(data.message || 'Thank you! Your message has been sent successfully.');
         setFormData({ name: '', email: '', message: '' });
+        router.push('/thank-you');
       } else {
         setSubmitStatus('error');
         if (data?.error) {
