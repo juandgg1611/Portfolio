@@ -17,7 +17,6 @@ const Contact = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
-  const [successMessage, setSuccessMessage] = useState<string>('');
 
   useEffect(() => {
     if (submitStatus) {

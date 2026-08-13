@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { gsap, useGSAP } from '@/lib/gsap';
+import Link from 'next/link';
 
 const faqs = [
   {
@@ -129,12 +130,12 @@ export default function FAQ() {
           <p className="text-warm/60 font-sans text-base">
             ¿Tu pregunta no está aquí?
           </p>
-          <a
+          <Link
             href="/#contact"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-ink text-cream font-mono font-bold text-sm uppercase tracking-widest hover:bg-ink/80 transition-colors duration-300"
           >
             Escríbeme directamente →
-          </a>
+          </Link>
         </div>
       </div>
     </section>

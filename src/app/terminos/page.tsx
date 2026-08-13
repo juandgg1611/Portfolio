@@ -24,7 +24,7 @@ export default function TerminosPage() {
 
         <div className="prose prose-invert max-w-none">
           <p className="text-white/70 text-xl sm:text-2xl leading-relaxed">
-            El presente documento establece el marco regulatorio integral que rige las relaciones comerciales, la prestación de servicios tecnológicos, los términos y condiciones de contratación operadas por el Prestador (Juan Oberto, en adelante el <strong className="text-neon">"Prestador"</strong>) hacia sus clientes y usuarios web (en adelante, el <strong className="text-neon">"Cliente"</strong> o <strong className="text-neon">"Usuario"</strong>).
+            El presente documento establece el marco regulatorio integral que rige las relaciones comerciales, la prestación de servicios tecnológicos, los términos y condiciones de contratación operadas por el Prestador (Juan Oberto, en adelante el <strong className="text-neon">&quot;Prestador&quot;</strong>) hacia sus clientes y usuarios web (en adelante, el <strong className="text-neon">&quot;Cliente&quot;</strong> o <strong className="text-neon">&quot;Usuario&quot;</strong>).
           </p>
 
           {/* Artículo 1 */}

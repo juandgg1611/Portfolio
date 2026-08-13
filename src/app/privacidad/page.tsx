@@ -24,7 +24,7 @@ export default function PrivacidadPage() {
 
         <div className="prose prose-invert max-w-none">
           <p className="text-white/70 text-xl sm:text-2xl leading-relaxed">
-            La presente Política de Privacidad regula la recolección, uso, almacenamiento y protección de la información personal recopilada a través del sitio web y los proyectos desplegados por <strong className="text-neon">Juan Oberto</strong> (en adelante, el <strong className="text-neon">"Prestador"</strong>). El Prestador actúa como responsable de los datos obtenidos en sus plataformas digitales directas.
+            La presente Política de Privacidad regula la recolección, uso, almacenamiento y protección de la información personal recopilada a través del sitio web y los proyectos desplegados por <strong className="text-neon">Juan Oberto</strong> (en adelante, el <strong className="text-neon">&quot;Prestador&quot;</strong>). El Prestador actúa como responsable de los datos obtenidos en sus plataformas digitales directas.
           </p>
 
           {/* Art. 1 */}

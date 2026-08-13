@@ -3,9 +3,8 @@
 import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { Link } from 'next-transition-router';
-import { gsap, ScrollTrigger, useGSAP } from '@/lib/gsap';
+import { gsap, useGSAP } from '@/lib/gsap';
 import AnimatedHeading from '@/components/ui/AnimateHeading';
-import AnimateDescription from '@/components/ui/AnimateDescription';
 import { FaArrowUp, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { Project } from '@/lib/projects';
 

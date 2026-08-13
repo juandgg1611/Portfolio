@@ -6,7 +6,7 @@
 
 'use client';
 
-import { gsap, ScrollTrigger } from '@/lib/gsap';
+import { gsap } from '@/lib/gsap';
 import { useEffect, useRef } from 'react';
 import HomeBanner from '@/components/sections/HomeBanner';
 import Projects from '@/components/sections/Projects';
