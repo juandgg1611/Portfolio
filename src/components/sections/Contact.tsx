@@ -404,12 +404,12 @@ const CTACard: React.FC<CTACardProps> = ({
       </div>
 
       {/* Footer */}
-      <div className="flex items-center justify-between gap-3 mt-auto relative z-10">
-        <span className="text-white/30 font-mono text-[10px] uppercase tracking-widest truncate">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-3 mt-auto relative z-10 w-full">
+        <span className="text-white/30 font-mono text-[10px] uppercase tracking-widest truncate max-w-full">
           {meta}
         </span>
         <span
-          className="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-full font-mono font-bold text-xs uppercase tracking-widest"
+          className="flex w-full sm:w-auto sm:inline-flex justify-center items-center gap-1.5 px-4 py-2 rounded-full font-mono font-bold text-xs uppercase tracking-widest"
           style={{
             background: accentColor,
             color: '#080807',
