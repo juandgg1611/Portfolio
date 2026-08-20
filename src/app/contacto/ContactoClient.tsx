@@ -146,28 +146,29 @@ export default function ContactoClient() {
             Portafolio
           </Link>
 
-          {/* Title row */}
-          <div className="mb-14">
-            <span className="text-neon font-mono text-xs uppercase tracking-[0.3em] block mb-6">
-              Contáctame
-            </span>
-            <h1
-              ref={titleRef}
-              className="font-display font-black uppercase leading-none text-light"
-              style={{ fontSize: 'clamp(3.5rem, 9vw, 8rem)', opacity: 0 }}
-            >
-              Hable<span className="text-neon">mos</span>
-            </h1>
-            <div className="flex flex-col sm:flex-row sm:items-end gap-6 mt-6">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 items-start">
+            
+            {/* Left: Title */}
+            <div className="flex-1">
+              <span className="text-neon font-mono text-xs uppercase tracking-[0.3em] block mb-6">
+                Contáctame
+              </span>
+              <h1
+                ref={titleRef}
+                className="font-display font-black uppercase leading-none text-light"
+                style={{ fontSize: 'clamp(3.5rem, 9vw, 8rem)', opacity: 0 }}
+              >
+                Hable<span className="text-neon">mos</span>
+              </h1>
               <p
                 ref={subtitleRef}
-                className="text-white/55 font-sans text-lg sm:text-xl leading-relaxed max-w-lg"
+                className="mt-6 text-white/55 font-sans text-lg sm:text-xl leading-relaxed max-w-lg"
                 style={{ opacity: 0 }}
               >
                 Sin formularios eternos. Elige la forma que mejor te vaya — un mensaje rápido o una llamada con café de por medio.
               </p>
               {/* Response time pill */}
-              <div className="flex-shrink-0 inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03]">
+              <div className="mt-8 inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03]">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-neon" />
@@ -177,72 +178,71 @@ export default function ContactoClient() {
                 </span>
               </div>
             </div>
-          </div>
 
-          {/* Availability Grid — full width, large */}
-          <div ref={gridRef} className="w-full">
-            <p className="text-white/35 font-mono text-xs uppercase tracking-[0.2em] mb-5">
-              Disponibilidad semanal · Zona horaria VET (UTC-4)
-            </p>
+            {/* Right: Availability Grid — Enlarged */}
+            <div ref={gridRef} className="flex-shrink-0 w-full lg:w-auto">
+              <p className="text-white/35 font-mono text-xs uppercase tracking-[0.2em] mb-5">
+                Disponibilidad semanal · Zona horaria VET (UTC-4)
+              </p>
 
-            {/* Hour labels */}
-            <div className="flex gap-2 mb-2" style={{ paddingLeft: '3.5rem' }}>
-              {HOURS.map((h) => (
-                <div key={h} className="flex-1 text-center text-white/30 font-mono text-xs">{h}</div>
-              ))}
-            </div>
-
-            {/* Grid rows */}
-            <div className="flex flex-col gap-2">
-              {SCHEDULE.map((row, di) => (
-                <div key={row.day} className="flex items-center gap-2">
-                  <span className="w-14 text-white/35 font-mono text-xs uppercase flex-shrink-0">{row.day}</span>
-                  {row.slots.map((available, si) => (
-                    <button
-                      key={si}
-                      className="avail-cell flex-1 rounded-lg transition-all duration-200 cursor-pointer"
-                      style={{
-                        height: '44px',
-                        background: activeCell?.day === di && activeCell?.slot === si
-                          ? '#C8FF00'
-                          : available
-                            ? 'rgba(200,255,0,0.18)'
-                            : 'rgba(255,255,255,0.04)',
-                        border: activeCell?.day === di && activeCell?.slot === si
-                          ? '1px solid #C8FF00'
-                          : available
-                            ? '1px solid rgba(200,255,0,0.3)'
-                            : '1px solid rgba(255,255,255,0.06)',
-                        transform: activeCell?.day === di && activeCell?.slot === si ? 'scale(1.08)' : 'scale(1)',
-                        boxShadow: activeCell?.day === di && activeCell?.slot === si
-                          ? '0 0 16px rgba(200,255,0,0.5)' : 'none',
-                      }}
-                      onMouseEnter={() => available && setActiveCell({ day: di, slot: si })}
-                      onMouseLeave={() => setActiveCell(null)}
-                      title={available ? `Disponible ${row.day} ${HOURS[si]}` : 'Ocupado'}
-                    />
-                  ))}
-                </div>
-              ))}
-            </div>
-
-            {/* Tooltip label */}
-            <div className="flex items-center justify-between mt-4">
-              <div className="flex gap-6">
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded" style={{ background: 'rgba(200,255,0,0.18)', border: '1px solid rgba(200,255,0,0.3)' }} />
-                  <span className="text-white/30 font-mono text-xs uppercase">Disponible</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }} />
-                  <span className="text-white/30 font-mono text-xs uppercase">Ocupado</span>
-                </div>
+              {/* Hour labels */}
+              <div className="flex gap-2 mb-2 pl-14">
+                {HOURS.map((h) => (
+                  <div key={h} className="w-10 text-center text-white/30 font-mono text-xs">{h}</div>
+                ))}
               </div>
-              {activeCell && (
-                <span className="font-mono text-xs text-neon uppercase tracking-widest">
-                  {SCHEDULE[activeCell.day].day} · {HOURS[activeCell.slot]}
-                </span>
-              )}
+
+              {/* Grid rows */}
+              <div className="flex flex-col gap-2">
+                {SCHEDULE.map((row, di) => (
+                  <div key={row.day} className="flex items-center gap-2">
+                    <span className="w-12 text-white/35 font-mono text-xs uppercase">{row.day}</span>
+                    {row.slots.map((available, si) => (
+                      <button
+                        key={si}
+                        className="avail-cell w-10 h-10 rounded-lg transition-all duration-200 cursor-pointer"
+                        style={{
+                          background: activeCell?.day === di && activeCell?.slot === si
+                            ? '#C8FF00'
+                            : available
+                              ? 'rgba(200,255,0,0.18)'
+                              : 'rgba(255,255,255,0.04)',
+                          border: activeCell?.day === di && activeCell?.slot === si
+                            ? '1px solid #C8FF00'
+                            : available
+                              ? '1px solid rgba(200,255,0,0.3)'
+                              : '1px solid rgba(255,255,255,0.06)',
+                          transform: activeCell?.day === di && activeCell?.slot === si ? 'scale(1.15)' : 'scale(1)',
+                          boxShadow: activeCell?.day === di && activeCell?.slot === si
+                            ? '0 0 16px rgba(200,255,0,0.5)' : 'none',
+                        }}
+                        onMouseEnter={() => available && setActiveCell({ day: di, slot: si })}
+                        onMouseLeave={() => setActiveCell(null)}
+                        title={available ? `Disponible ${row.day} ${HOURS[si]}` : 'Ocupado'}
+                      />
+                    ))}
+                  </div>
+                ))}
+              </div>
+
+              {/* Tooltip label */}
+              <div className="flex items-center justify-between mt-5">
+                <div className="flex gap-4">
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 rounded" style={{ background: 'rgba(200,255,0,0.18)', border: '1px solid rgba(200,255,0,0.3)' }} />
+                    <span className="text-white/30 font-mono text-xs uppercase">Disponible</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 rounded" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }} />
+                    <span className="text-white/30 font-mono text-xs uppercase">Ocupado</span>
+                  </div>
+                </div>
+                {activeCell && (
+                  <span className="font-mono text-xs text-neon uppercase tracking-widest">
+                    {SCHEDULE[activeCell.day].day} · {HOURS[activeCell.slot]}
+                  </span>
+                )}
+              </div>
             </div>
           </div>
         </div>
