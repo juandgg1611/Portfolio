@@ -165,7 +165,7 @@ export default function ContactoClient() {
                 className="mt-6 text-white/55 font-sans text-lg sm:text-xl leading-relaxed max-w-lg"
                 style={{ opacity: 0 }}
               >
-                Sin formularios eternos. Elige la forma que mejor te vaya — un mensaje rápido o una llamada con café de por medio.
+                Sin formularios eternos. Elige la forma que mejor te vaya, un mensaje rápido o una llamada con café de por medio.
               </p>
               {/* Response time pill */}
               <div className="mt-8 inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03]">
@@ -186,9 +186,9 @@ export default function ContactoClient() {
               </p>
 
               {/* Hour labels */}
-              <div className="flex gap-2 mb-2 pl-14">
+              <div className="flex gap-2 mb-2 pl-16">
                 {HOURS.map((h) => (
-                  <div key={h} className="w-10 text-center text-white/30 font-mono text-xs">{h}</div>
+                  <div key={h} className="w-12 text-center text-white/30 font-mono text-xs">{h}</div>
                 ))}
               </div>
 
@@ -196,11 +196,11 @@ export default function ContactoClient() {
               <div className="flex flex-col gap-2">
                 {SCHEDULE.map((row, di) => (
                   <div key={row.day} className="flex items-center gap-2">
-                    <span className="w-12 text-white/35 font-mono text-xs uppercase">{row.day}</span>
+                    <span className="w-14 text-white/35 font-mono text-xs uppercase">{row.day}</span>
                     {row.slots.map((available, si) => (
                       <button
                         key={si}
-                        className="avail-cell w-10 h-10 rounded-lg transition-all duration-200 cursor-pointer"
+                        className="avail-cell w-12 h-12 rounded-lg transition-all duration-200 cursor-pointer"
                         style={{
                           background: activeCell?.day === di && activeCell?.slot === si
                             ? '#C8FF00'
