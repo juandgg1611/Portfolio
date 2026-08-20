@@ -96,7 +96,7 @@ const Footer = () => {
               <h3 className="text-warm/40 font-mono text-xs uppercase tracking-[0.2em] font-bold mb-6">
                 Explorar
               </h3>
-              <ul className="grid grid-cols-2 gap-x-8 gap-y-4 text-warm text-sm sm:text-base font-sans font-semibold tracking-wide">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-4 text-warm text-sm sm:text-base font-sans font-semibold tracking-wide">
                 {links.map((link) => (
                   <AnimatedLink key={link.href}>
                     {link.external ? (
