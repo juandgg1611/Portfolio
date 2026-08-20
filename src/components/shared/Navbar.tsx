@@ -224,24 +224,25 @@ const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, isTransitioning
 
         <div
           ref={metaRef}
-          className="absolute bottom-0 left-0 right-0 h-[170px] md:h-[100px] pl-20 pr-10 md:px-16 pt-6 pb-6 md:pb-10 flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-start md:items-end"
+          className="absolute bottom-0 left-0 right-0 h-[170px] md:h-[100px] pl-6 pr-6 md:px-16 pt-6 pb-24 md:pb-10 flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-start md:items-end"
           style={{ opacity: 0 }}
         >
           <div className="space-y-1 text-left">
             <p className="text-gray-mid font-mono text-xs uppercase tracking-widest mb-2">Contacto</p>
             <a
-              href="mailto:hola@juanoberto.com"
+              href="mailto:juandgg11o@gmail.com"
               className="text-muted hover:text-white text-sm transition-colors duration-200"
             >
-              hola@juanoberto.com
+              juandgg11o@gmail.com
             </a>
           </div>
 
-          <div className="flex gap-6 justify-start">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 justify-start md:justify-start">
             {[
-              { label: 'GitHub', href: 'https://github.com/aitezazdev' },
-              { label: 'Source Code', href: 'https://github.com/aitezazdev/Portfolio' },
-              { label: 'LinkedIn', href: 'https://linkedin.com/in/aitezaz-sikandar' },
+              { label: 'GitHub', href: 'https://github.com/juandgg1611' },
+              { label: 'Source Code', href: 'https://github.com/juandgg1611/Portfolio' },
+              { label: 'LinkedIn', href: 'https://www.linkedin.com/in/juan-oberto-7124bb30b/' },
+              { label: 'Instagram', href: 'https://www.instagram.com/juandv.16?igsh=ZWsxZDA3Z3Vyc2dr&igsi=ZWsxZDA3Z3Vyc2dr' },
             ].map((s) => (
               <a
                 key={s.label}

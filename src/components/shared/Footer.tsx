@@ -128,25 +128,25 @@ const Footer = () => {
               </h3>
               <ul className="flex flex-col gap-4 text-warm text-sm sm:text-base font-sans font-semibold tracking-wide">
                 <AnimatedLink>
-                  <a href="https://linkedin.com/in/aitezaz-sikandar" target="_blank" rel="noopener noreferrer" className="hover:text-forest transition-colors flex items-center gap-2 group">
+                  <a href="https://www.linkedin.com/in/juan-oberto-7124bb30b/" target="_blank" rel="noopener noreferrer" className="hover:text-forest transition-colors flex items-center gap-2 group">
                     LinkedIn
                     <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-forest">↗</span>
                   </a>
                 </AnimatedLink>
                 <AnimatedLink>
-                  <a href="https://instagram.com/ur_zaz" target="_blank" rel="noopener noreferrer" className="hover:text-forest transition-colors flex items-center gap-2 group">
+                  <a href="https://www.instagram.com/juandv.16?igsh=ZWsxZDA3Z3Vyc2dr&igsi=ZWsxZDA3Z3Vyc2dr" target="_blank" rel="noopener noreferrer" className="hover:text-forest transition-colors flex items-center gap-2 group">
                     Instagram
                     <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-forest">↗</span>
                   </a>
                 </AnimatedLink>
                 <AnimatedLink>
-                  <a href="https://github.com/aitezazdev" target="_blank" rel="noopener noreferrer" className="hover:text-forest transition-colors flex items-center gap-2 group">
+                  <a href="https://github.com/juandgg1611" target="_blank" rel="noopener noreferrer" className="hover:text-forest transition-colors flex items-center gap-2 group">
                     GitHub
                     <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-forest">↗</span>
                   </a>
                 </AnimatedLink>
                 <AnimatedLink>
-                  <a href="https://github.com/aitezazdev/Portfolio" target="_blank" rel="noopener noreferrer" className="hover:text-forest transition-colors flex items-center gap-2 group">
+                  <a href="https://github.com/juandgg1611/Portfolio" target="_blank" rel="noopener noreferrer" className="hover:text-forest transition-colors flex items-center gap-2 group">
                     Código Fuente
                     <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-forest">↗</span>
                   </a>
