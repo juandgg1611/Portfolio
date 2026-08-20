@@ -224,7 +224,7 @@ const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, isTransitioning
 
         <div
           ref={metaRef}
-          className="absolute bottom-0 left-0 right-0 h-[170px] md:h-[100px] pl-6 pr-6 md:px-16 pt-6 pb-24 md:pb-10 flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-start md:items-end"
+          className="absolute bottom-0 left-0 right-0 h-[170px] md:h-[100px] pl-6 pr-6 md:pl-16 md:pr-32 lg:pr-48 xl:pr-56 pt-6 pb-24 md:pb-10 flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-start md:items-end"
           style={{ opacity: 0 }}
         >
           <div className="space-y-1 text-left">
@@ -242,14 +242,14 @@ const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, isTransitioning
               { label: 'GitHub', href: 'https://github.com/juandgg1611' },
               { label: 'Source Code', href: 'https://github.com/juandgg1611/Portfolio' },
               { label: 'LinkedIn', href: 'https://www.linkedin.com/in/juan-oberto-7124bb30b/' },
-              { label: 'Instagram', href: 'https://www.instagram.com/juandv.16?igsh=ZWsxZDA3Z3Vyc2dr&igsi=ZWsxZDA3Z3Vyc2dr' },
+              { label: 'Instagram', href: 'https://www.instagram.com/juandv.16?igsh=ZWsxZDA3Z3Vyc2dr&igsi=ZWsxZDA3Z3Vyc2dr', hideOnMobile: true },
             ].map((s) => (
               <a
                 key={s.label}
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-mid hover:text-cream text-xs font-mono uppercase tracking-widest transition-colors duration-200 underline-offset-4 hover:underline"
+                className={`text-gray-mid hover:text-cream text-xs font-mono uppercase tracking-widest transition-colors duration-200 underline-offset-4 hover:underline ${s.hideOnMobile ? 'hidden md:inline-block' : ''}`}
               >
                 {s.label}
               </a>
