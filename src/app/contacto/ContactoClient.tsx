@@ -333,7 +333,7 @@ export default function ContactoClient() {
                   <span style={{ color: '#25D366' }}>WhatsApp</span>
                 </h2>
                 <p className="text-white/50 font-sans text-base leading-relaxed max-w-sm">
-                  Un mensaje y empezamos. Cuéntame tu idea — te respondo con honestidad qué se puede hacer, cuánto tarda y cuánto cuesta.
+                  Un mensaje y empezamos. Cuéntame tu idea, te respondo con honestidad qué se puede hacer, cuánto tarda y cuánto cuesta.
                 </p>
               </div>
 
@@ -352,13 +352,13 @@ export default function ContactoClient() {
               </div>
 
               {/* CTA */}
-              <div className="flex items-center justify-between mt-auto relative z-10">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-4 mt-auto relative z-10">
                 <div className="flex items-center gap-2">
                   <Zap size={14} style={{ color: 'rgba(37,211,102,0.6)' }} />
                   <span className="text-white/30 font-mono text-xs">Respuesta &lt; 24h</span>
                 </div>
                 <span
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-mono font-bold text-sm uppercase tracking-widest"
+                  className="flex w-full sm:w-auto sm:inline-flex justify-center items-center gap-2 px-6 py-3 rounded-full font-mono font-bold text-sm uppercase tracking-widest"
                   style={{
                     background: '#25D366',
                     color: '#080807',
@@ -476,13 +476,13 @@ export default function ContactoClient() {
               </div>
 
               {/* CTA */}
-              <div className="flex items-center justify-between mt-auto relative z-10">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-4 mt-auto relative z-10">
                 <div className="flex items-center gap-2">
                   <Calendar size={14} className="text-neon/50" />
-                  <span className="text-white/30 font-mono text-xs">calendly.com/juandgg11o</span>
+                  <span className="text-white/30 font-mono text-xs truncate max-w-full">calendly.com/juandgg11o</span>
                 </div>
                 <span
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-mono font-bold text-sm uppercase tracking-widest bg-neon text-ink"
+                  className="flex w-full sm:w-auto sm:inline-flex justify-center items-center gap-2 px-6 py-3 rounded-full font-mono font-bold text-sm uppercase tracking-widest bg-neon text-ink"
                   style={{
                     transform: calHovered ? 'scale(1.06)' : 'scale(1)',
                     boxShadow: calHovered ? '0 0 24px rgba(200,255,0,0.55)' : 'none',
