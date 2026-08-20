@@ -256,7 +256,7 @@ const Contact = () => {
               />
               <CTACard
                 type="calendly"
-                href="https://calendly.com/juandgg11o"
+                href="https://calendly.com/juandgg11o/consulta"
                 icon={<Calendar size={22} strokeWidth={1.8} />}
                 badge="15 – 30 min"
                 badgePulse={false}

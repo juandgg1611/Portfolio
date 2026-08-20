@@ -19,7 +19,7 @@ const WHATSAPP_NUMBER = '584246801808';
 const WHATSAPP_MESSAGE = encodeURIComponent(
   '¡Hola Juan! 👋 Vi tu portafolio y me gustaría hablar sobre un proyecto. ¿Tienes un momento?'
 );
-const CALENDLY_URL = 'https://calendly.com/juandgg11o';
+const CALENDLY_URL = 'https://calendly.com/juandgg11o/consulta';
 
 // Availability schedule data
 const SCHEDULE = [
@@ -479,7 +479,7 @@ export default function ContactoClient() {
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-4 mt-auto relative z-10">
                 <div className="flex items-center gap-2">
                   <Calendar size={14} className="text-neon/50" />
-                  <span className="text-white/30 font-mono text-xs truncate max-w-full">calendly.com/juandgg11o</span>
+                  <span className="text-white/30 font-mono text-xs truncate max-w-full">calendly.com/juandgg11o/consulta</span>
                 </div>
                 <span
                   className="flex w-full sm:w-auto sm:inline-flex justify-center items-center gap-2 px-6 py-3 rounded-full font-mono font-bold text-sm uppercase tracking-widest bg-neon text-ink"
