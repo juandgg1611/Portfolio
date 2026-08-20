@@ -245,8 +245,6 @@ export default function ContactoClient() {
               )}
             </div>
           </div>
-
-          </div>
         </div>
       </section>
 
