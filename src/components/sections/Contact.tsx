@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import AnimatedHeading from '@/components/ui/AnimateHeading';
 import AnimateDescription from '@/components/ui/AnimateDescription';
 import AnimatedButton from '@/components/ui/AnimatedButton';
+import { MessageCircle, Calendar, ArrowRight, Clock, CheckCircle } from 'lucide-react';
 
 const Contact = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -228,36 +229,45 @@ const Contact = () => {
             </button>
           </form>
 
-          <div className="mt-16 pt-12 border-t border-elevated-dark flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-warm mb-2 font-mono">
-                Contacto Directo
-              </p>
 
-              <button
-                type="button"
-                aria-label="Copy email address to clipboard"
-                onClick={() => {
-                  navigator.clipboard.writeText('hola@juan.com');
-                  const toast = document.getElementById('email-copy-toast');
-                  if (toast) {
-                    toast.style.opacity = '1';
-                    toast.style.transform = 'translateY(0)';
-                    setTimeout(() => {
-                      toast.style.opacity = '0';
-                      toast.style.transform = 'translateY(8px)';
-                    }, 2000);
-                  }
-                }}
-                className="group relative inline-block cursor-none text-light font-display font-black uppercase leading-none hover:text-neon transition-colors duration-300 max-w-full whitespace-nowrap"
-                style={{
-                  fontSize: 'clamp(1.1rem, 3.4vw, 4.5rem)',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                Juandgg11o@gmail.com
-                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-neon origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out block" />
-              </button>
+          {/* ── Dual CTA Cards ── */}
+          <div className="mt-16 pt-12 border-t border-elevated-dark">
+            <div className="mb-8">
+              <p className="text-neon font-mono text-xs uppercase tracking-[0.25em] mb-2">¿Prefieres algo más directo?</p>
+              <p className="text-white/50 font-sans text-sm leading-relaxed max-w-md">
+                Si no quieres llenar un formulario, aquí van las dos formas más rápidas de hablar conmigo.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+              <CTACard
+                type="whatsapp"
+                href={`https://wa.me/584246801808?text=${encodeURIComponent('¡Hola Juan! 👋 Vi tu portafolio y me gustaría hablar sobre un proyecto. ¿Tienes un momento?')}`}
+                icon={<MessageCircle size={22} strokeWidth={1.8} />}
+                badge="Disponible"
+                badgePulse
+                label="Acción inmediata"
+                title="Escribir por WhatsApp"
+                description="Un mensaje y empezamos. Sin burocracia, sin esperas. Respondo en menos de 24 horas hábiles."
+                cta="Abrir chat"
+                meta="wa.me/juandgg"
+                accentColor="#25D366"
+                glowColor="37,211,102"
+              />
+              <CTACard
+                type="calendly"
+                href="https://calendly.com/juandgg11o"
+                icon={<Calendar size={22} strokeWidth={1.8} />}
+                badge="15 – 30 min"
+                badgePulse={false}
+                label="Sin presión"
+                title="Agendar un café virtual"
+                description="Elige el día y la hora. Una conversación corta puede ser el punto de partida de algo grande."
+                cta="Ver disponibilidad"
+                meta="Lun – Vie · 9am – 6pm VET"
+                accentColor="#C8FF00"
+                glowColor="200,255,0"
+              />
             </div>
           </div>
         </div>
@@ -288,4 +298,140 @@ const Contact = () => {
   );
 };
 
+/* ── Reusable interactive card ── */
+interface CTACardProps {
+  type: 'whatsapp' | 'calendly';
+  href: string;
+  icon: React.ReactNode;
+  badge: string;
+  badgePulse: boolean;
+  label: string;
+  title: string;
+  description: string;
+  cta: string;
+  meta: string;
+  accentColor: string;
+  glowColor: string;
+}
+
+const CTACard: React.FC<CTACardProps> = ({
+  href, icon, badge, badgePulse, label, title, description, cta, meta, accentColor, glowColor,
+}) => {
+  const [hovered, setHovered] = useState(false);
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = () => {
+    setClicked(true);
+    setTimeout(() => setClicked(false), 1200);
+  };
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onClick={handleClick}
+      className="relative flex flex-col gap-5 p-6 md:p-8 rounded-2xl overflow-hidden cursor-pointer select-none"
+      style={{
+        background: hovered ? `rgba(${glowColor},0.06)` : 'rgba(255,255,255,0.03)',
+        border: `1px solid ${hovered ? `rgba(${glowColor},0.5)` : 'rgba(255,255,255,0.08)'}`,
+        boxShadow: hovered ? `0 0 55px -10px rgba(${glowColor},0.35)` : '0 2px 20px rgba(0,0,0,0.2)',
+        transform: hovered ? 'translateY(-4px)' : 'translateY(0)',
+        transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+        backdropFilter: 'blur(14px)',
+      }}
+    >
+      {/* Ambient corner glow */}
+      <div
+        className="absolute -top-16 -right-16 w-40 h-40 rounded-full blur-3xl pointer-events-none"
+        style={{
+          background: `radial-gradient(circle, rgba(${glowColor},0.2) 0%, transparent 70%)`,
+          opacity: hovered ? 1 : 0,
+          transition: 'opacity 0.6s ease',
+        }}
+      />
+
+      {/* Top row: icon + badge */}
+      <div className="flex items-center justify-between gap-3 relative z-10">
+        <div
+          className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+          style={{
+            background: `rgba(${glowColor},0.15)`,
+            border: `1px solid rgba(${glowColor},0.3)`,
+            color: accentColor,
+            transform: hovered ? 'scale(1.12) rotate(4deg)' : 'scale(1) rotate(0deg)',
+            transition: 'transform 0.35s cubic-bezier(0.34,1.56,0.64,1)',
+          }}
+        >
+          {clicked
+            ? <CheckCircle size={20} strokeWidth={2} style={{ color: accentColor }} />
+            : icon}
+        </div>
+
+        <div className="flex items-center gap-1.5">
+          {badgePulse && (
+            <span className="relative flex h-2 w-2">
+              <span
+                className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                style={{ background: accentColor }}
+              />
+              <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: accentColor }} />
+            </span>
+          )}
+          {!badgePulse && <Clock size={12} style={{ color: accentColor }} />}
+          <span className="font-mono text-xs uppercase tracking-widest" style={{ color: accentColor }}>
+            {badge}
+          </span>
+        </div>
+      </div>
+
+      {/* Body */}
+      <div className="flex flex-col gap-1.5 relative z-10">
+        <span
+          className="font-mono text-[10px] uppercase tracking-[0.22em]"
+          style={{ color: `rgba(${glowColor},0.7)` }}
+        >
+          {label}
+        </span>
+        <h3 className="text-lg md:text-xl font-black text-light uppercase leading-tight">
+          {title}
+        </h3>
+        <p className="text-white/50 font-sans text-sm leading-relaxed mt-0.5">
+          {description}
+        </p>
+      </div>
+
+      {/* Footer */}
+      <div className="flex items-center justify-between gap-3 mt-auto relative z-10">
+        <span className="text-white/30 font-mono text-[10px] uppercase tracking-widest truncate">
+          {meta}
+        </span>
+        <span
+          className="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-full font-mono font-bold text-xs uppercase tracking-widest"
+          style={{
+            background: accentColor,
+            color: '#080807',
+            transform: hovered ? 'scale(1.05)' : 'scale(1)',
+            boxShadow: hovered ? `0 0 18px rgba(${glowColor},0.6)` : 'none',
+            transition: 'all 0.35s cubic-bezier(0.34,1.56,0.64,1)',
+          }}
+        >
+          {cta}
+          <ArrowRight
+            size={12}
+            strokeWidth={2.5}
+            style={{
+              transform: hovered ? 'translateX(3px)' : 'translateX(0)',
+              transition: 'transform 0.3s ease',
+            }}
+          />
+        </span>
+      </div>
+    </a>
+  );
+};
+
 export default Contact;
+
