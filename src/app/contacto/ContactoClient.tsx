@@ -29,7 +29,7 @@ const SCHEDULE = [
   { day: 'Jue', slots: [0, 1, 1, 1, 0, 1, 1, 1, 1] },
   { day: 'Vie', slots: [1, 1, 1, 0, 1, 1, 0, 1, 0] },
 ];
-const HOURS = ['9am', '10', '11', '12pm', '1', '2', '3', '4', '5'];
+const HOURS = ['9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm'];
 
 export default function ContactoClient() {
   const heroRef = useRef<HTMLDivElement>(null);

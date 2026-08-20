@@ -51,8 +51,7 @@ const Footer = () => {
     { name: 'Sobre mí', href: '/#about' },
     { name: 'Servicios', href: '/#services' },
     { name: 'Proyectos', href: '/#projects' },
-    { name: 'Contacto', href: '/#contact' },
-    { name: 'Hablemos', href: '/contacto', external: true },
+    { name: 'Contacto', href: '/contacto', external: true },
     { name: 'FAQ', href: '/faq', external: true },
     { name: 'Términos', href: '/terminos', external: true },
     { name: 'Privacidad', href: '/privacidad', external: true },
@@ -97,7 +96,7 @@ const Footer = () => {
               <h3 className="text-warm/40 font-mono text-xs uppercase tracking-[0.2em] font-bold mb-6">
                 Explorar
               </h3>
-              <ul className="flex flex-col gap-4 text-warm text-sm sm:text-base font-sans font-semibold tracking-wide">
+              <ul className="grid grid-cols-2 gap-x-8 gap-y-4 text-warm text-sm sm:text-base font-sans font-semibold tracking-wide">
                 {links.map((link) => (
                   <AnimatedLink key={link.href}>
                     {link.external ? (
