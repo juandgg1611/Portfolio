@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Preguntas Frecuentes',
@@ -90,21 +91,43 @@ export default function FAQPage() {
             ))}
           </div>
 
-          {/* Bottom CTA */}
-          <div className="mt-16 pt-12 border-t border-border-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div>
-              <span className="text-warm/50 font-mono text-xs uppercase tracking-[0.2em] block mb-2">¿Más dudas?</span>
-              <p className="text-white/70 text-lg leading-relaxed">
-                Escríbeme directamente y respondo en menos de 24 horas.
-              </p>
+          {/* ── MEGA CTA BAR ── */}
+          <div className="mt-20 relative overflow-hidden rounded-3xl" style={{
+            background: 'linear-gradient(135deg, #C8FF00 0%, #a0cc00 50%, #7aab00 100%)',
+            boxShadow: '0 30px 80px rgba(200,255,0,0.35), 0 0 0 1px rgba(200,255,0,0.2)',
+          }}>
+            {/* Diagonal stripe texture */}
+            <div className="absolute inset-0 pointer-events-none" style={{
+              backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 12px, rgba(0,0,0,0.07) 12px, rgba(0,0,0,0.07) 24px)',
+            }} />
+            {/* Glow orb */}
+            <div className="absolute -right-20 -top-20 w-80 h-80 rounded-full pointer-events-none" style={{
+              background: 'radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%)',
+            }} />
+
+            <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-8 px-10 py-10 md:px-16 md:py-14">
+              <div>
+                <p className="font-mono text-ink/60 text-xs uppercase tracking-[0.25em] mb-2">¿Aún tienes dudas?</p>
+                <h2 className="font-display font-black uppercase text-ink leading-none"
+                  style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}>
+                  Cuéntame tu proyecto.<br />Te respondo hoy.
+                </h2>
+              </div>
+              <Link
+                href="/contacto"
+                className="flex-shrink-0 group inline-flex items-center gap-3 px-8 py-4 rounded-full font-mono font-bold text-sm uppercase tracking-widest transition-all duration-300 hover:gap-5"
+                style={{
+                  background: '#080807',
+                  color: '#C8FF00',
+                  boxShadow: '0 8px 30px rgba(0,0,0,0.3)',
+                }}
+              >
+                Hablemos ahora
+                <ArrowRight size={16} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
             </div>
-            <Link
-              href="/contacto"
-              className="flex-shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-neon text-ink font-mono font-bold text-sm uppercase tracking-widest rounded-full hover:bg-neon/90 transition-all duration-300 shadow-[0_0_30px_rgba(200,255,0,0.25)] hover:shadow-[0_0_45px_rgba(200,255,0,0.4)] hover:-translate-y-0.5"
-            >
-              Hablar con Juan →
-            </Link>
           </div>
+
         </div>
 
       </div>
